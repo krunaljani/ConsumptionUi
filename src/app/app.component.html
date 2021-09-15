@@ -1,0 +1,20 @@
+<div style="padding:10px">
+Enter Consumption : <input type="number" #consumption>
+<button (click)="getReport(consumption.value)" mat-button style="margin-left:10px;box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);">Get Comparision</button>
+<section *ngIf="data">
+  Reports:
+<table mat-table [dataSource]="data" class="mat-elevation-z8" style="margin-top: 10px;;">    
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> Tariff Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.tariffName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Annual Cost </th>
+      <td mat-cell *matCellDef="let element"> {{element.annualCost}} </td>
+    </ng-container>  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</section>
+</div>
